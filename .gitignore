@@ -7,6 +7,8 @@
 *.tmp
 
 # part of file in git-related file in web app
-./*/.git
+./AI-Image-classifiers-on-Django-with-RESTAPI/.git/
 
+# log file produce by ngix container
+./log
 
