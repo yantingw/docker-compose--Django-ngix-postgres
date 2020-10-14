@@ -1,0 +1,12 @@
+
+
+# 忽略所有 db 目錄下附檔名是 .sqlite3 的檔案
+/**.sqlite3
+
+# 忽略所有附檔名是 .tmp 的檔案
+*.tmp
+
+# part of file in git-related file in web app
+./*/.git
+
+

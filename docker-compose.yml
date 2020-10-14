@@ -1,0 +1,51 @@
+version: '2'
+services:
+
+  db:
+    container_name: AI_postgressss
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: P@SSWd
+    # ports:
+    #   - "5432:5432"
+    #   (HOST:CONTAINER)
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    networks:
+      - db_network
+
+  djangoapp:
+    container_name: AI_app
+    build: .
+    restart: always
+    volumes:
+      - .:/opt/services/djangoapp/src
+    depends_on:
+        - db
+    command: sh  /opt/services/djangoapp/src/start.sh
+    networks:  # <-- here
+      - nginx_network
+      - db_network
+
+  nginx:
+    image: nginx:1.13
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+      - ./log:/var/log/nginx
+    depends_on:
+      - djangoapp
+    networks:  # <-- here
+      - nginx_network
+
+networks:  # <-- and here
+  nginx_network:
+    driver: bridge
+  db_network:
+    driver: bridge
+
+volumes:
+  pgdata:
