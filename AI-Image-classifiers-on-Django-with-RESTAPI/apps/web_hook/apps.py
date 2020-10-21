@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class GestureConfig(AppConfig):
-    name = 'apps.gesture'
+    name = 'apps.web_hook'

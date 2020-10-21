@@ -9,7 +9,7 @@
 # part of file in git-related file in web app
 ./AI-Image-classifiers-on-Django-with-RESTAPI/.git/**/*
 ./**/static/**/*
-
+./**/media/**
 # log file produce by ngix container
-./log
+./log/*
 

@@ -28,6 +28,7 @@ from apps.detect_object.views import *
 from apps.gesture.views import *
 from apps.identification.views import *
 from apps.tenc_ai.views import *
+from apps.web_hook.views import *
 import AI.views
 
 urlpatterns = [
@@ -47,10 +48,14 @@ urlpatterns = [
     path(r'gesture/gesture_request/', gesture_request, name='gesture_request'),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
-    path(r'', include('apps.identification.urls'), ),
+    #remove it to prevent install tensorflow in container
+    #path(r'', include('apps.identification.urls'), ),
     path('test', test),
     path('ajax', ajax),
     url(r'^tenc-ai/', tenc_ai, name='tenc_ai'),
+    # my path
+    path(r'web_hook/',web_hook,name='web_hook'),
+    path(r'web_hook/web_hook_request/', web_hook_request, name='web_hook_request'),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT,) + static(settings.STATIC_URL,

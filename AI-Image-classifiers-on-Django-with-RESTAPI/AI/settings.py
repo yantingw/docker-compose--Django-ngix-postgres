@@ -76,6 +76,8 @@ INSTALLED_APPS = [
     'apps.identification',
     'apps.tenc_ai',
     # 'account',
+    # my deploy 
+    'apps.web_hook',
 ]
 
 SITE_ID = 1
@@ -124,7 +126,7 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'P@SSWd',
-        'HOST': 'db',
+        'HOST': '127.0.0.1',#'db',
         'PORT': 5432,
     }
     #'default': {
