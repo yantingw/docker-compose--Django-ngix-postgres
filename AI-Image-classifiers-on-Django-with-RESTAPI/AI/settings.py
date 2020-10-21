@@ -126,7 +126,7 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'P@SSWd',
-        'HOST': '127.0.0.1',#'db',
+        'HOST': 'db',#'127.0.0.1',#'db',
         'PORT': 5432,
     }
     #'default': {
